@@ -77,6 +77,16 @@ const campaignSchema = new mongoose.Schema(
       type: Date,
       required: true,
     },
+    location: {
+      type: String,
+      required: true,
+      trim: true,
+    },
+    urgency: {
+      type: String,
+      enum: ["Low", "Medium", "High"],
+      required: true,
+    },
   },
   { timestamps: true }
 );

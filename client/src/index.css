@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
 
+@custom-variant dark (&:is(.dark *));
+
 * {
   font-family: 'Inter', sans-serif;
 }
@@ -61,7 +63,5 @@
     --chart-5: 340 75% 55%
   }
 }
-
-
 
 
