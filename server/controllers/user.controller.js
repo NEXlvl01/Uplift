@@ -81,4 +81,47 @@ async function getUserByID(req, res) {
   }
 }
 
-module.exports = { userLogin, userSignup, getUserByID };
+async function updateUser(req, res) {
+  try {
+    const userId = req.params.id;
+
+    if (req.user.id !== userId) {
+      return res
+        .status(403)
+        .json({ message: "Unauthorized to update this profile" });
+    }
+
+    const { fullName, email, role } = req.body;
+
+    if (!fullName || !email) {
+      return res.status(400).json({ message: "Name and email are required" });
+    }
+
+    const updatedUser = await User.findByIdAndUpdate(
+      userId,
+      {
+        fullName,
+        email,
+        role,
+        updatedAt: Date.now(),
+      },
+      { new: true, runValidators: true }
+    ).select("-password");
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json(updatedUser);
+  } catch (error) {
+    console.error("Error updating user profile:", error);
+
+    if (error.code === 11000) {
+      return res.status(400).json({ message: "Email already in use" });
+    }
+
+    res.status(500).json({ message: "Server error", error: error.message });
+  }
+}
+
+module.exports = { userLogin, userSignup, getUserByID, updateUser };

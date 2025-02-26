@@ -1,5 +1,7 @@
 import React from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import axios from "../../axiosConfig.tsx";
 import {
   Card,
   CardContent,
@@ -35,6 +37,8 @@ import {
   ResponsiveContainer,
   Cell,
 } from "recharts";
+import { useNavigate } from "react-router-dom";
+import ProfileCard from "./ProfileCard.tsx";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -59,28 +63,69 @@ const itemVariants = {
 
 export default function OrganizerDashboard() {
   const [activeTab, setActiveTab] = React.useState("overview");
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [campaignData, setCampaignData] = useState([]);
+  const [activeCampaigns, setActiveCampaigns] = useState([]);
+  const navigate = useNavigate("");
+  const [stats, setStats] = useState({
+    totalRaised: 0,
+    totalDonors: 0,
+    activeCampaigns: 0,
+  });
 
-  const organizer = {
-    fullName: "Sarah Johnson",
-    email: "sarah@example.com",
-    role: "Campaign Organizer",
-    profilePicture: "/profile.jpg",
-  };
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const storedUser = JSON.parse(localStorage.getItem("user"));
+      if (!storedUser || !storedUser.id) {
+        console.error("No user found in localStorage");
+        setLoading(false);
+        return;
+      }
 
-  const campaignData = [
-    { name: "Jan", amount: 15000 },
-    { name: "Feb", amount: 22000 },
-    { name: "Mar", amount: 18500 },
-    { name: "Apr", amount: 25000 },
-    { name: "May", amount: 30000 },
-    { name: "Jun", amount: 27000 },
-  ];
+      try {
+        const { data } = await axios.get(`/user/${storedUser.id}`);
+        setUser(data);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  const activeCampaigns = [
-    "Clean Water Initiative",
-    "Education for All",
-    "Community Garden Project",
-  ];
+    const fetchStats = async () => {
+      try {
+        const response = await axios.get("/campaign/stats");
+        setStats(response.data);
+      } catch (error) {
+        console.error("Error fetching stats:", error);
+      }
+    };
+
+    const fetchCampaignData = async () => {
+      try {
+        const response = await axios.get("/campaign/fundsbycategory"); // Update with your actual backend API endpoint
+        const { activeCampaigns, fundraisingData } = response.data;
+
+        setActiveCampaigns(activeCampaigns);
+        console.log(activeCampaigns);
+
+        setCampaignData(
+          fundraisingData.map((item, index) => ({
+            name: item._id,
+            amount: item.totalFunds,
+            color: gradientColorsForBars[index % gradientColorsForBars.length],
+          }))
+        );
+      } catch (error) {
+        console.error("Error fetching campaign data:", error);
+      }
+    };
+
+    fetchCampaignData();
+    fetchStats();
+    fetchUserData();
+  }, []);
 
   const gradientColorsForBars = [
     "#6366F1",
@@ -102,66 +147,7 @@ export default function OrganizerDashboard() {
         {/* Profile Header */}
         <motion.div variants={cardVariants} className="relative">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-purple-600/20 rounded-3xl blur-xl opacity-30" />
-          <Card className="border-0 overflow-hidden bg-black/40 backdrop-blur-md rounded-3xl shadow-xl border-t border-white/5">
-            <CardContent className="p-8">
-              <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
-                <div className="relative">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full blur opacity-70" />
-                  <Avatar className="w-24 h-24 border-2 border-black relative">
-                    <AvatarImage
-                      src={organizer.profilePicture}
-                      alt={organizer.fullName}
-                    />
-                    <AvatarFallback className="bg-gradient-to-br from-indigo-500 to-purple-600 text-white text-xl">
-                      {organizer.fullName?.charAt(0) ?? "O"}
-                    </AvatarFallback>
-                  </Avatar>
-                </div>
-
-                <div className="space-y-2">
-                  <motion.h2
-                    className="text-3xl md:text-4xl font-bold text-white"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.2 }}
-                  >
-                    {organizer.fullName}
-                  </motion.h2>
-                  <motion.p
-                    className="text-zinc-100"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    {organizer.email}
-                  </motion.p>
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.4 }}
-                  >
-                    <Badge className="text-sm bg-gradient-to-r from-indigo-500/80 to-purple-600/80 border-0 px-3 py-1.5 rounded-full text-white">
-                      {organizer.role}
-                    </Badge>
-                  </motion.div>
-                </div>
-
-                <div className="md:ml-auto flex flex-col md:flex-row gap-3 w-full md:w-auto mt-6 md:mt-0">
-                  <Button
-                    variant="outline"
-                    className="border-zinc-700 bg-zinc-800/50 hover:bg-zinc-800 text-white group transition-all duration-300"
-                  >
-                    <PenLine className="mr-2 h-4 w-4 group-hover:text-indigo-400 transition-colors" />
-                    Edit Profile
-                  </Button>
-                  <Button className="bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white border-0 transition-all duration-300">
-                    <Plus className="mr-2 h-4 w-4" />
-                    Create Campaign
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+          <ProfileCard user={user} setUser={setUser} />
         </motion.div>
 
         {/* Dashboard Tabs */}
@@ -180,25 +166,11 @@ export default function OrganizerDashboard() {
               Overview
             </TabsTrigger>
             <TabsTrigger
-              value="campaigns"
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500/20 data-[state=active]:to-purple-600/20 data-[state=active]:text-white rounded-lg text-zinc-200"
-            >
-              <Target className="mr-2 h-4 w-4" />
-              Campaigns
-            </TabsTrigger>
-            <TabsTrigger
               value="donors"
               className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500/20 data-[state=active]:to-purple-600/20 data-[state=active]:text-white rounded-lg text-zinc-200"
             >
               <Users className="mr-2 h-4 w-4" />
               Donors
-            </TabsTrigger>
-            <TabsTrigger
-              value="calendar"
-              className="data-[state=active]:bg-gradient-to-r data-[state=active]:from-indigo-500/20 data-[state=active]:to-purple-600/20 data-[state=active]:text-white rounded-lg text-zinc-200"
-            >
-              <Calendar className="mr-2 h-4 w-4" />
-              Schedule
             </TabsTrigger>
           </TabsList>
 
@@ -225,14 +197,14 @@ export default function OrganizerDashboard() {
                     <CardContent>
                       <div className="flex items-baseline">
                         <span className="text-3xl font-bold text-indigo-400">
-                          $137,500
+                          ₹{stats.totalRaised.toLocaleString()}
                         </span>
                         <span className="ml-2 text-xs text-zinc-300">
                           all campaigns
                         </span>
                       </div>
                       <p className="text-zinc-300 text-sm mt-2">
-                        Across 6 campaigns
+                        Across {stats.activeCampaigns} campaigns
                       </p>
                     </CardContent>
                   </Card>
@@ -249,14 +221,14 @@ export default function OrganizerDashboard() {
                     <CardContent>
                       <div className="flex items-baseline">
                         <span className="text-3xl font-bold text-indigo-400">
-                          {activeCampaigns.length}
+                          {stats.activeCampaigns}
                         </span>
                         <span className="ml-2 text-xs text-zinc-300">
                           running
                         </span>
                       </div>
                       <p className="text-zinc-300 text-sm mt-2">
-                        2 pending approval
+                        Ongoing campaigns
                       </p>
                     </CardContent>
                   </Card>
@@ -273,14 +245,14 @@ export default function OrganizerDashboard() {
                     <CardContent>
                       <div className="flex items-baseline">
                         <span className="text-3xl font-bold text-indigo-400">
-                          1,247
+                          {stats.totalDonors.toLocaleString()}
                         </span>
                         <span className="ml-2 text-xs text-zinc-300">
                           supporters
                         </span>
                       </div>
                       <p className="text-zinc-300 text-sm mt-2">
-                        89 new this month
+                        Unique donors
                       </p>
                     </CardContent>
                   </Card>
@@ -346,7 +318,7 @@ export default function OrganizerDashboard() {
                               tick={{ fill: "#EEE" }}
                               axisLine={{ stroke: "#666" }}
                               tickLine={{ stroke: "#666" }}
-                              tickFormatter={(value) => `$${value / 1000}k`}
+                              tickFormatter={(value) => `₹${value / 1000}k`}
                             />
                             // [Previous code remains the same until Fundraising
                             Chart...]
@@ -363,7 +335,7 @@ export default function OrganizerDashboard() {
                                 marginBottom: "5px",
                               }}
                               formatter={(value) => [
-                                `$${value.toLocaleString()}`,
+                                `₹ ${value.toLocaleString()}`,
                                 "Amount",
                               ]}
                             />
@@ -404,68 +376,55 @@ export default function OrganizerDashboard() {
                     </CardHeader>
                     <CardContent>
                       {activeCampaigns.length > 0 ? (
-                        <ScrollArea className="h-56 pr-4">
-                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        <div className="h-64 overflow-auto pr-4 w-full custom-scrollbar">
+                          <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full pb-3">
                             {activeCampaigns.map((campaign, index) => (
-                              <motion.li
-                                key={index}
-                                variants={itemVariants}
-                                whileHover={{ scale: 1.02 }}
-                                className="relative group"
+                              <li
+                                key={campaign._id || index}
+                                className="bg-zinc-800/90 border border-zinc-700/50 hover:border-indigo-500/40 p-5 rounded-xl w-full transition-all duration-300 hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer group"
+                                onClick={() => {
+                                  navigate(
+                                    `/campaigns/details/${campaign._id}`
+                                  );
+                                }}
                               >
-                                <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/10 to-purple-600/10 opacity-0 group-hover:opacity-100 rounded-xl transition-opacity duration-300" />
-                                <TooltipProvider>
-                                  <Tooltip>
-                                    <TooltipTrigger asChild>
-                                      <div className="bg-zinc-800/80 border border-zinc-700/50 group-hover:border-indigo-500/30 p-4 rounded-xl cursor-pointer transition-all duration-300 flex items-center">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-600/20 flex items-center justify-center mr-3 flex-shrink-0">
-                                          <Target
-                                            size={16}
-                                            className="text-indigo-400"
-                                          />
-                                        </div>
-                                        <div className="flex-1 overflow-hidden">
-                                          <h4 className="text-white font-medium truncate">
-                                            {campaign}
-                                          </h4>
-                                          <p className="text-xs text-zinc-300">
-                                            Active campaign
-                                          </p>
-                                        </div>
-                                      </div>
-                                    </TooltipTrigger>
-                                    <TooltipContent
-                                      side="top"
-                                      className="bg-zinc-800 text-white border-zinc-700"
-                                    >
-                                      View campaign details
-                                    </TooltipContent>
-                                  </Tooltip>
-                                </TooltipProvider>
-                              </motion.li>
+                                <div className="flex items-center w-full">
+                                  <div className="w-12 h-12 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-600/20 flex items-center justify-center mr-4 flex-shrink-0 group-hover:from-indigo-500/30 group-hover:to-purple-600/30 transition-all duration-300">
+                                    <Target
+                                      size={20}
+                                      className="text-indigo-400 group-hover:text-indigo-300"
+                                    />
+                                  </div>
+                                  <div className="flex-1 min-w-0">
+                                    <h4 className="text-white font-medium truncate max-w-full text-base mb-1 group-hover:text-indigo-100">
+                                      {campaign.title || "Untitled Campaign"}
+                                    </h4>
+                                    <div className="flex items-center">
+                                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-500/20 text-indigo-300 border border-indigo-500/20">
+                                        {campaign.category || "Uncategorized"}
+                                      </span>
+                                      <span className="text-xs text-zinc-400 ml-2">
+                                        ID: {campaign._id.substring(0, 6)}...
+                                      </span>
+                                    </div>
+                                  </div>
+                                  <span className="text-zinc-500 group-hover:text-indigo-400 ml-2 transition-colors duration-300">
+                                    →
+                                  </span>
+                                </div>
+                              </li>
                             ))}
                           </ul>
-                        </ScrollArea>
+                        </div>
                       ) : (
                         <div className="flex flex-col items-center justify-center h-56 bg-zinc-900/50 rounded-xl border border-dashed border-zinc-800">
-                          <motion.div
-                            animate={{
-                              scale: [1, 1.05, 1],
-                              opacity: [0.7, 1, 0.7],
-                            }}
-                            transition={{
-                              duration: 3,
-                              repeat: Infinity,
-                              repeatType: "reverse",
-                            }}
-                            className="w-16 h-16 rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-600/20 flex items-center justify-center mb-4"
-                          >
+                          <div className="w-16 h-16 rounded-full bg-indigo-500/20 flex items-center justify-center mb-4">
                             <Target size={24} className="text-indigo-400" />
-                          </motion.div>
+                          </div>
                           <p className="text-zinc-200 mb-2">
                             No active campaigns
                           </p>
-                          <Button className="text-sm bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white border-0 mt-2">
+                          <Button className="text-sm bg-gradient-to-r from-indigo-500 to-purple-600 text-white border-0 mt-2">
                             Create Campaign
                           </Button>
                         </div>
@@ -478,35 +437,6 @@ export default function OrganizerDashboard() {
           </TabsContent>
 
           {/* Other tab contents with placeholder content */}
-          <TabsContent value="campaigns" className="mt-0">
-            {activeTab === "campaigns" && (
-              <motion.div
-                key="campaigns"
-                variants={tabContentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="space-y-4"
-              >
-                <Card className="bg-zinc-900/30 backdrop-blur-md border-zinc-800/50 overflow-hidden rounded-xl">
-                  <CardHeader>
-                    <CardTitle className="text-white">
-                      Campaign Management
-                    </CardTitle>
-                    <CardDescription className="text-zinc-200">
-                      Manage all your fundraising campaigns
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-200">
-                      Detailed campaign management coming soon...
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )}
-          </TabsContent>
-
           <TabsContent value="donors" className="mt-0">
             {activeTab === "donors" && (
               <motion.div
@@ -529,35 +459,6 @@ export default function OrganizerDashboard() {
                   <CardContent>
                     <p className="text-zinc-200">
                       Donor management features coming soon...
-                    </p>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            )}
-          </TabsContent>
-
-          <TabsContent value="calendar" className="mt-0">
-            {activeTab === "calendar" && (
-              <motion.div
-                key="calendar"
-                variants={tabContentVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                className="space-y-4"
-              >
-                <Card className="bg-zinc-900/30 backdrop-blur-md border-zinc-800/50 overflow-hidden rounded-xl">
-                  <CardHeader>
-                    <CardTitle className="text-white">
-                      Campaign Schedule
-                    </CardTitle>
-                    <CardDescription className="text-zinc-200">
-                      Manage your campaign timeline and events
-                    </CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-zinc-200">
-                      Campaign calendar view coming soon...
                     </p>
                   </CardContent>
                 </Card>

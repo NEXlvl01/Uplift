@@ -4,9 +4,7 @@ const { updateCampaignStatus } = require("../services/updateCampaignStatus.js");
 const { instance } = require("../services/razorpay.service.js");
 const crypto = require("crypto");
 
-
 async function addCampaign(req, res) {
-  console.log("HIIII");
   try {
     const {
       title,
@@ -152,7 +150,7 @@ async function getCommentsByCampaignID(req, res) {
       "fullName profilePicture"
     );
 
-    console.log(campaign.comments);
+    // console.log(campaign.comments);
 
     if (!campaign) {
       return res.status(404).json({ message: "Campaign not found" });
@@ -229,6 +227,32 @@ async function verifyPayment(req, res) {
   }
 }
 
+async function getFundsByCategory(req, res) {
+  try {
+    const activeCampaigns = await Campaign.find({ status: "Active" }).select(
+      "title category"
+    );
+
+    const fundraisingData = await Campaign.aggregate([
+      {
+        $group: {
+          _id: "$category",
+          totalFunds: { $sum: "$fundsRaised" },
+        },
+      },
+      { $sort: { totalFunds: -1 } },
+    ]);
+
+    res.json({
+      activeCampaigns,
+      fundraisingData,
+    });
+  } catch (error) {
+    console.error("Error fetching campaign data:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+}
+
 module.exports = {
   addCampaign,
   getMyCampaigns,
@@ -238,4 +262,5 @@ module.exports = {
   getCommentsByCampaignID,
   createPaymentOrder,
   verifyPayment,
+  getFundsByCategory,
 };
