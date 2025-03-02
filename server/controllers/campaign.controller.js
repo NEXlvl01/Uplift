@@ -102,6 +102,7 @@ async function getCampaignByID(req, res) {
     if (!campaign) {
       return res.status(404).json({ message: "Campaign not found" });
     }
+    await updateCampaignStatus(campaign);
     res.json(campaign);
   } catch (error) {
     console.log(error);
@@ -213,9 +214,23 @@ async function verifyPayment(req, res) {
     }
 
     // Update campaign funds
-    const campaign = await Campaign.findByIdAndUpdate(campaignId, {
-      $inc: { fundsRaised: amount },
-      $push: { donations: { donorId: userId, amount } },
+    const campaign = await Campaign.findByIdAndUpdate(
+      campaignId,
+      {
+        $inc: { fundsRaised: amount },
+        $push: { donations: { donorId: userId, amount } },
+      },
+      { new: true }
+    );
+
+    await User.findByIdAndUpdate(userId, {
+      $push: {
+        donationHistory: {
+          campaignId,
+          amount,
+          date: new Date(),
+        },
+      },
     });
 
     await updateCampaignStatus(campaign);
@@ -253,6 +268,16 @@ async function getFundsByCategory(req, res) {
   }
 }
 
+async function getAllCampaigns(req, res) {
+  try {
+    const campaigns = await Campaign.find();
+    res.json(campaigns);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching campaigns" });
+  }
+}
+
 module.exports = {
   addCampaign,
   getMyCampaigns,
@@ -263,4 +288,5 @@ module.exports = {
   createPaymentOrder,
   verifyPayment,
   getFundsByCategory,
+  getAllCampaigns,
 };

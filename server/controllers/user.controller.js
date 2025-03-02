@@ -124,4 +124,109 @@ async function updateUser(req, res) {
   }
 }
 
-module.exports = { userLogin, userSignup, getUserByID, updateUser };
+async function getSavedCampaigns(req, res) {
+  try {
+    const user = await User.findById(req.params.id).populate("savedCampaigns");
+    res.json(user.savedCampaigns.map((campaign) => campaign._id));
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error fetching saved campaigns" });
+  }
+}
+
+async function unsaveCampaign(req, res) {
+  try {
+    const { campaignId } = req.body;
+    await User.findByIdAndUpdate(req.params.id, {
+      $pull: { savedCampaigns: campaignId },
+    });
+    res.json({ message: "Campaign unsaved" });
+  } catch (error) {
+    res.status(500).json({ error: "Error unsaving campaign" });
+  }
+}
+
+async function saveCampaign(req, res) {
+  try {
+    const { campaignId } = req.body;
+    await User.findByIdAndUpdate(req.params.id, {
+      $addToSet: { savedCampaigns: campaignId },
+    });
+    res.json({ message: "Campaign saved" });
+  } catch (error) {
+    res.status(500).json({ error: "Error saving campaign" });
+  }
+}
+
+async function getUserStats(req, res) {
+  try {
+    const { userId } = req.params;
+
+    const user = await User.findById(userId)
+      .populate("donationHistory.campaignId", "title")
+      .populate("savedCampaigns");
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const totalDonated = user.donationHistory.reduce(
+      (sum, donation) => sum + donation.amount,
+      0
+    );
+
+    res.json({
+      totalDonated,
+      donationHistory: user.donationHistory,
+      savedCampaigns: user.savedCampaigns,
+    });
+  } catch (error) {
+    console.error("Error fetching user stats:", error);
+    res.status(500).json({ message: "Internal server error" });
+  }
+}
+
+async function getDonationSummary(req, res) {
+  try {
+    const { userID } = req.params;
+
+    const user = await User.findById(userID).populate(
+      "donationHistory.campaignId"
+    );
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
+    const categoryTotals = {};
+
+    user.donationHistory.forEach(({ campaignId, amount }) => {
+      if (campaignId && campaignId.category) {
+        const category = campaignId.category;
+        categoryTotals[category] = (categoryTotals[category] || 0) + amount;
+      }
+    });
+
+    const donationSummary = Object.keys(categoryTotals).map((category) => ({
+      name: category,
+      amount: categoryTotals[category],
+    }));
+
+    res.json(donationSummary);
+  } catch (error) {
+    console.error("Error fetching donation summary:", error);
+    res.status(500).json({ error: "Internal server error" });
+  }
+}
+
+module.exports = {
+  userLogin,
+  userSignup,
+  getUserByID,
+  updateUser,
+  getSavedCampaigns,
+  unsaveCampaign,
+  saveCampaign,
+  getUserStats,
+  getDonationSummary,
+};

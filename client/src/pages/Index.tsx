@@ -7,6 +7,7 @@ import Dashboard from "../pages/Dashboard/Dashboard";
 import About from "./Home/About";
 import Campaigns from "./Campaigns/Campaigns";
 import CampaignDetails from "./Campaigns/CampaignDetails";
+import Donations from "./Donations/Donations";
 
 export default function Index() {
   return (
@@ -19,6 +20,7 @@ export default function Index() {
         <Route path="/dashboard" element={<Dashboard />}></Route>
         <Route path="/about" element={<About />}></Route>
         <Route path="/campaigns" element={<Campaigns />}></Route>
+        <Route path="/donations" element={<Donations />}></Route>
         <Route
           path="/campaigns/details/:id"
           element={<CampaignDetails />}

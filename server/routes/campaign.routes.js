@@ -7,6 +7,7 @@ const {
   postComment,
   getCommentsByCampaignID,
   getFundsByCategory,
+  getAllCampaigns,
 } = require("../controllers/campaign.controller.js");
 
 const router = express.Router();
@@ -18,5 +19,6 @@ router.get("/details/:id", getCampaignByID);
 router.post("/:id/comments", postComment);
 router.get("/:id/comments", getCommentsByCampaignID);
 router.get("/fundsbycategory", getFundsByCategory);
+router.get("/getAll",getAllCampaigns);
 
 module.exports = router;
