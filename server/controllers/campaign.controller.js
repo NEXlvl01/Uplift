@@ -168,7 +168,6 @@ async function createPaymentOrder(req, res) {
   try {
     const { amount, campaignId } = req.body;
 
-    // Fetch the campaign from the database
     const campaign = await Campaign.findById(campaignId);
     if (!campaign) return res.status(404).json({ error: "Campaign not found" });
 
@@ -179,7 +178,7 @@ async function createPaymentOrder(req, res) {
     }
 
     const options = {
-      amount: amount * 100, // Convert to paise
+      amount: amount * 100, 
       currency: "INR",
       receipt: `receipt_${Date.now()}`,
     };
@@ -213,7 +212,7 @@ async function verifyPayment(req, res) {
       return res.status(400).json({ error: "Invalid payment signature" });
     }
 
-    // Update campaign funds
+    
     const campaign = await Campaign.findByIdAndUpdate(
       campaignId,
       {

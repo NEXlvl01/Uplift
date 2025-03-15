@@ -32,7 +32,6 @@ const userSchema = new mongoose.Schema(
       },
     },
 
-    // Fields specific to Donors
     donationHistory: [
       {
         campaignId: { type: mongoose.Schema.Types.ObjectId, ref: "Campaign" },
@@ -47,7 +46,6 @@ const userSchema = new mongoose.Schema(
       },
     ],
 
-    // Fields specific to Campaign Organizers
     campaignsManaged: [
       {
         campaignId: { type: mongoose.Schema.Types.ObjectId, ref: "Campaign" },
@@ -63,7 +61,6 @@ const userSchema = new mongoose.Schema(
       },
     ],
 
-    // Common Fields
     notifications: [
       {
         message: { type: String, required: true },

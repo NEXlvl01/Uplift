@@ -436,7 +436,7 @@ export default function OrganizerDashboard() {
             )}
           </TabsContent>
 
-          {/* Other tab contents with placeholder content */}
+         
           <TabsContent value="donors" className="mt-0">
             {activeTab === "donors" && (
               <motion.div

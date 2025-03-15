@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -9,18 +15,18 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import { toast } from "react-hot-toast";
-import { 
-  HeartHandshake, 
-  Calendar, 
-  MapPin, 
-  AlertTriangle, 
-  Target, 
+import {
+  HeartHandshake,
+  Calendar,
+  MapPin,
+  AlertTriangle,
+  Target,
   Users,
-  MessageCircle
+  MessageCircle,
 } from "lucide-react";
 import axios from "../../axiosConfig.tsx";
 
-// Animated gradient background component
+
 const AnimatedBackground = () => (
   <div className="absolute inset-0 overflow-hidden">
     <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
@@ -35,14 +41,21 @@ const AnimatedBackground = () => (
   </div>
 );
 
-// Campaign Comment Component
+
 const CommentItem = ({ comment }) => {
   const date = new Date(comment.createdAt);
-  const formattedTime = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-  const formattedDate = date.toLocaleDateString([], { year: 'numeric', month: 'short', day: 'numeric' });
+  const formattedTime = date.toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+  const formattedDate = date.toLocaleDateString([], {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
@@ -50,7 +63,10 @@ const CommentItem = ({ comment }) => {
     >
       <Avatar className="h-10 w-10 border border-zinc-700/50">
         {comment.userId.profilePicture ? (
-          <AvatarImage src={comment.userId.profilePicture} alt={comment.userId.fullName} />
+          <AvatarImage
+            src={comment.userId.profilePicture}
+            alt={comment.userId.fullName}
+          />
         ) : (
           <AvatarFallback className="bg-zinc-700 text-zinc-100">
             {comment.userId.fullName.charAt(0)}
@@ -59,8 +75,12 @@ const CommentItem = ({ comment }) => {
       </Avatar>
       <div className="flex-1 space-y-1">
         <div className="flex items-center justify-between">
-          <p className="text-sm font-medium text-zinc-100">{comment.userId.fullName}</p>
-          <span className="text-xs text-zinc-500">{formattedDate} at {formattedTime}</span>
+          <p className="text-sm font-medium text-zinc-100">
+            {comment.userId.fullName}
+          </p>
+          <span className="text-xs text-zinc-500">
+            {formattedDate} at {formattedTime}
+          </span>
         </div>
         <p className="text-sm text-zinc-300">{comment.text}</p>
       </div>
@@ -151,7 +171,10 @@ export default function CampaignDetails() {
             campaignId: id,
           });
           toast.success("Donation Successful");
-          setCampaign({ ...campaign, fundsRaised: campaign.fundsRaised + Number(donationAmount) });
+          setCampaign({
+            ...campaign,
+            fundsRaised: campaign.fundsRaised + Number(donationAmount),
+          });
         },
         prefill: {
           name: user?.fullName || "",
@@ -195,7 +218,8 @@ export default function CampaignDetails() {
       Medical: "bg-blue-500/20 text-blue-400 border-blue-500/50",
       Education: "bg-green-500/20 text-green-400 border-green-500/50",
       "Disaster Relief": "bg-red-500/20 text-red-400 border-red-500/50",
-      "Community Support": "bg-purple-500/20 text-purple-400 border-purple-500/50",
+      "Community Support":
+        "bg-purple-500/20 text-purple-400 border-purple-500/50",
       "Animal Welfare": "bg-yellow-500/20 text-yellow-400 border-yellow-500/50",
       Other: "bg-gray-500/20 text-gray-400 border-gray-500/50",
     };
@@ -252,7 +276,10 @@ export default function CampaignDetails() {
     );
   }
 
-  const progress = calculateProgress(campaign.fundsRaised || 0, campaign.targetAmount);
+  const progress = calculateProgress(
+    campaign.fundsRaised || 0,
+    campaign.targetAmount
+  );
   const isExpired = new Date(campaign.endDate) < new Date();
   const daysLeft = Math.max(
     0,
@@ -264,7 +291,7 @@ export default function CampaignDetails() {
       <AnimatedBackground />
 
       <div className="relative z-10 container mx-auto px-4 py-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -300,7 +327,7 @@ export default function CampaignDetails() {
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-6">
-                <motion.p 
+                <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
@@ -337,7 +364,9 @@ export default function CampaignDetails() {
                           : "Campaign ended"}
                       </span>
                     ) : (
-                      <span className={isExpired ? "text-red-400" : "text-zinc-300"}>
+                      <span
+                        className={isExpired ? "text-red-400" : "text-zinc-300"}
+                      >
                         {isExpired ? "Campaign ended" : `${daysLeft} days left`}
                       </span>
                     )}
@@ -418,7 +447,9 @@ export default function CampaignDetails() {
                           value={donationAmount}
                           onChange={(e) => setDonationAmount(e.target.value)}
                         />
-                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400">₹</span>
+                        <span className="absolute left-3 top-1/2 -translate-y-1/2 text-zinc-400">
+                          ₹
+                        </span>
                       </div>
                       <motion.div
                         whileHover={{ scale: 1.02 }}
@@ -429,7 +460,9 @@ export default function CampaignDetails() {
                           className="w-full py-6 text-lg bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
                           disabled={campaign.status !== "Active"}
                         >
-                          {campaign.status === "Active" ? "Make Donation" : "Campaign Ended"}
+                          {campaign.status === "Active"
+                            ? "Make Donation"
+                            : "Campaign Ended"}
                         </Button>
                       </motion.div>
                     </div>
@@ -477,7 +510,10 @@ export default function CampaignDetails() {
                 <div className="flex gap-4 mb-6">
                   <Avatar className="h-10 w-10 border border-zinc-700/50">
                     {user.profilePicture ? (
-                      <AvatarImage src={user.profilePicture} alt={user.fullName} />
+                      <AvatarImage
+                        src={user.profilePicture}
+                        alt={user.fullName}
+                      />
                     ) : (
                       <AvatarFallback className="bg-zinc-700 text-zinc-100">
                         {user.fullName ? user.fullName.charAt(0) : "U"}

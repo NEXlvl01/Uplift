@@ -218,7 +218,7 @@ const DonorDashboard = () => {
             </TabsTrigger>
           </TabsList>
 
-          {/* Fixed Tab Contents - Each tab content has its own AnimatePresence */}
+          
           <TabsContent value="overview" className="mt-0">
             {activeTab === "overview" && (
               <motion.div

@@ -52,7 +52,7 @@ const FeatureCard = ({ icon: Icon, title, description, delay }) => {
 };
 
 export default function Home() {
-  // Text animation variants
+  
   const textVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: (i) => ({

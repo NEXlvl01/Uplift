@@ -177,13 +177,6 @@ const Donations = () => {
     };
 
     fetchDonations();
-
-    const interval = setInterval(() => {
-      setNewDonationAlert(true);
-      setTimeout(() => setNewDonationAlert(false), 5000);
-    }, 45000);
-
-    return () => clearInterval(interval);
   }, []);
 
   // Format currency - Changed from USD to INR (Rupees)
