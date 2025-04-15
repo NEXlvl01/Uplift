@@ -8,6 +8,8 @@ import About from "./Home/About";
 import Campaigns from "./Campaigns/Campaigns";
 import CampaignDetails from "./Campaigns/CampaignDetails";
 import Donations from "./Donations/Donations";
+import Quizzes from "./Quiz/Quizzes";
+import QuizQuestons from "./Quiz/QuizQuestons";
 
 export default function Index() {
   return (
@@ -21,10 +23,12 @@ export default function Index() {
         <Route path="/about" element={<About />}></Route>
         <Route path="/campaigns" element={<Campaigns />}></Route>
         <Route path="/donations" element={<Donations />}></Route>
+        <Route path="/quizzes" element={<Quizzes />}></Route>
         <Route
           path="/campaigns/details/:id"
           element={<CampaignDetails />}
         ></Route>
+        <Route path = "/quizzes/quiz/:quizTopic" element={<QuizQuestons/>}></Route>
       </Routes>
     </div>
   );

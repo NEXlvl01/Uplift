@@ -1,0 +1,902 @@
+[
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What is the normal resting heart rate for adults?",
+    "options": [
+      "60-100 bpm",
+      "100-120 bpm",
+      "40-60 bpm",
+      "120-140 bpm"
+    ],
+    "correctAnswer": "60-100 bpm",
+    "explanation": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What does CPR stand for?",
+    "options": [
+      "Cardiac Pulse Rescue",
+      "Cardio Pulmonary Resuscitation",
+      "Cardiovascular Pulmonary Response",
+      "Circulatory Pressure Regulation"
+    ],
+    "correctAnswer": "Cardio Pulmonary Resuscitation",
+    "explanation": "CPR is a life-saving technique useful in emergencies."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What does CPR stand for?",
+    "options": [
+      "Cardiac Pulse Rescue",
+      "Cardio Pulmonary Resuscitation",
+      "Cardiovascular Pulmonary Response",
+      "Circulatory Pressure Regulation"
+    ],
+    "correctAnswer": "Cardio Pulmonary Resuscitation",
+    "explanation": "CPR is a life-saving technique useful in emergencies."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What does CPR stand for?",
+    "options": [
+      "Cardiac Pulse Rescue",
+      "Cardio Pulmonary Resuscitation",
+      "Cardiovascular Pulmonary Response",
+      "Circulatory Pressure Regulation"
+    ],
+    "correctAnswer": "Cardio Pulmonary Resuscitation",
+    "explanation": "CPR is a life-saving technique useful in emergencies."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What is the normal resting heart rate for adults?",
+    "options": [
+      "60-100 bpm",
+      "100-120 bpm",
+      "40-60 bpm",
+      "120-140 bpm"
+    ],
+    "correctAnswer": "60-100 bpm",
+    "explanation": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What does CPR stand for?",
+    "options": [
+      "Cardiac Pulse Rescue",
+      "Cardio Pulmonary Resuscitation",
+      "Cardiovascular Pulmonary Response",
+      "Circulatory Pressure Regulation"
+    ],
+    "correctAnswer": "Cardio Pulmonary Resuscitation",
+    "explanation": "CPR is a life-saving technique useful in emergencies."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What is the normal resting heart rate for adults?",
+    "options": [
+      "60-100 bpm",
+      "100-120 bpm",
+      "40-60 bpm",
+      "120-140 bpm"
+    ],
+    "correctAnswer": "60-100 bpm",
+    "explanation": "A normal resting heart rate for adults ranges from 60 to 100 beats per minute."
+  },
+  {
+    "category": "Medical",
+    "questionText": "What does CPR stand for?",
+    "options": [
+      "Cardiac Pulse Rescue",
+      "Cardio Pulmonary Resuscitation",
+      "Cardiovascular Pulmonary Response",
+      "Circulatory Pressure Regulation"
+    ],
+    "correctAnswer": "Cardio Pulmonary Resuscitation",
+    "explanation": "CPR is a life-saving technique useful in emergencies."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Medical",
+    "questionText": "Which vitamin is essential for blood clotting?",
+    "options": [
+      "Vitamin A",
+      "Vitamin K",
+      "Vitamin D",
+      "Vitamin B12"
+    ],
+    "correctAnswer": "Vitamin K",
+    "explanation": "Vitamin K helps in the process of blood clotting."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "What does STEM stand for?",
+    "options": [
+      "Science, Technology, Engineering, Mathematics",
+      "Science, Training, Education, Math",
+      "Statistics, Technology, Economics, Mathematics",
+      "Science, Teaching, Education, Mechanics"
+    ],
+    "correctAnswer": "Science, Technology, Engineering, Mathematics",
+    "explanation": "STEM is a curriculum based on these disciplines."
+  },
+  {
+    "category": "Education",
+    "questionText": "Who is known as the father of modern education?",
+    "options": [
+      "John Locke",
+      "John Dewey",
+      "Jean Piaget",
+      "Plato"
+    ],
+    "correctAnswer": "John Dewey",
+    "explanation": "John Dewey is considered the father of modern education for his progressive views."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "What is the first priority in disaster management?",
+    "options": [
+      "Rebuilding",
+      "Search and Rescue",
+      "Donations",
+      "Press Conference"
+    ],
+    "correctAnswer": "Search and Rescue",
+    "explanation": "Saving lives is the first priority in disaster management."
+  },
+  {
+    "category": "Disaster Relief",
+    "questionText": "Which organization is known for international disaster relief?",
+    "options": [
+      "UNICEF",
+      "Red Cross",
+      "NASA",
+      "Greenpeace"
+    ],
+    "correctAnswer": "Red Cross",
+    "explanation": "The Red Cross is globally recognized for providing emergency disaster relief."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Which of the following is a community support service?",
+    "options": [
+      "Library",
+      "Hospital",
+      "Fire Department",
+      "All of the above"
+    ],
+    "correctAnswer": "All of the above",
+    "explanation": "All listed services provide support to the community."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Which of the following is a community support service?",
+    "options": [
+      "Library",
+      "Hospital",
+      "Fire Department",
+      "All of the above"
+    ],
+    "correctAnswer": "All of the above",
+    "explanation": "All listed services provide support to the community."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Which of the following is a community support service?",
+    "options": [
+      "Library",
+      "Hospital",
+      "Fire Department",
+      "All of the above"
+    ],
+    "correctAnswer": "All of the above",
+    "explanation": "All listed services provide support to the community."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Volunteering helps build what in communities?",
+    "options": [
+      "Crime",
+      "Taxes",
+      "Social cohesion",
+      "Debt"
+    ],
+    "correctAnswer": "Social cohesion",
+    "explanation": "Volunteering enhances connection among community members."
+  },
+  {
+    "category": "Community Support",
+    "questionText": "Which of the following is a community support service?",
+    "options": [
+      "Library",
+      "Hospital",
+      "Fire Department",
+      "All of the above"
+    ],
+    "correctAnswer": "All of the above",
+    "explanation": "All listed services provide support to the community."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "Which is a known animal welfare organization?",
+    "options": [
+      "PETA",
+      "NASA",
+      "WHO",
+      "WTO"
+    ],
+    "correctAnswer": "PETA",
+    "explanation": "PETA stands for People for the Ethical Treatment of Animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "Which is a known animal welfare organization?",
+    "options": [
+      "PETA",
+      "NASA",
+      "WHO",
+      "WTO"
+    ],
+    "correctAnswer": "PETA",
+    "explanation": "PETA stands for People for the Ethical Treatment of Animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "Which is a known animal welfare organization?",
+    "options": [
+      "PETA",
+      "NASA",
+      "WHO",
+      "WTO"
+    ],
+    "correctAnswer": "PETA",
+    "explanation": "PETA stands for People for the Ethical Treatment of Animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "What is the main goal of animal welfare?",
+    "options": [
+      "Reduce animal lifespan",
+      "Ensure animals' well-being",
+      "Increase animal testing",
+      "Remove all pets"
+    ],
+    "correctAnswer": "Ensure animals' well-being",
+    "explanation": "Animal welfare focuses on the humane treatment of animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "Which is a known animal welfare organization?",
+    "options": [
+      "PETA",
+      "NASA",
+      "WHO",
+      "WTO"
+    ],
+    "correctAnswer": "PETA",
+    "explanation": "PETA stands for People for the Ethical Treatment of Animals."
+  },
+  {
+    "category": "Animal Welfare",
+    "questionText": "Which is a known animal welfare organization?",
+    "options": [
+      "PETA",
+      "NASA",
+      "WHO",
+      "WTO"
+    ],
+    "correctAnswer": "PETA",
+    "explanation": "PETA stands for People for the Ethical Treatment of Animals."
+  }
+]

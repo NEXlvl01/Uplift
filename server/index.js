@@ -9,6 +9,7 @@ const userRouter = require("./routes/user.routes.js");
 const campaignRouter = require("./routes/campaign.routes.js");
 const paymentRouter = require("./routes/payment.routes.js");
 const donationRouter = require("./routes/donation.routes.js");
+const quizRouter = require("./routes/quiz.routes.js");
 const { scheduledStatusUpdate } = require("./services/updateCampaignStatus.js");
 
 dotenv.config();
@@ -26,6 +27,7 @@ app.use("/user", userRouter);
 app.use("/campaign", campaignRouter);
 app.use("/payment", paymentRouter);
 app.use("/donation", donationRouter);
+app.use("/quiz", quizRouter);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server Started At Port ${process.env.PORT}`);

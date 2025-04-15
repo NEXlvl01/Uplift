@@ -149,6 +149,7 @@ export default function CampaignDetails() {
       toast.error("Enter a valid donation amount");
       return;
     }
+
     try {
       const response = await axios.post("/payment/create-order", {
         amount: donationAmount,
@@ -157,7 +158,7 @@ export default function CampaignDetails() {
 
       const { order } = response.data;
       const options = {
-        key: import.meta.env.RAZORPAY_KEY_ID,
+        key: "rzp_test_LGadjdPLKQ4dGt",
         amount: order.amount,
         currency: "INR",
         name: "Uplift Donations",

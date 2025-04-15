@@ -63,6 +63,7 @@ export default function Navbar() {
     { name: "Home", path: "/" },
     { name: "Campaigns", path: "/campaigns" },
     { name: "Donations", path: "/donations" },
+    { name: "Quiz For Cause", path: "/quizzes" },
     { name: "About", path: "/about" },
   ];
 

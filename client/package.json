@@ -32,6 +32,7 @@
     "lottie-react": "^2.4.1",
     "lucide-react": "^0.475.0",
     "react": "^19.0.0",
+    "react-clock": "^5.1.0",
     "react-dom": "^19.0.0",
     "react-hook-form": "^7.54.2",
     "react-hot-toast": "^2.5.2",
